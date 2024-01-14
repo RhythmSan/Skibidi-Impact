@@ -1,0 +1,98 @@
+.Characters {
+    width: 67px;
+    height: 14px;
+    position: absolute;
+}
+
+.Characters[data-user = "player_1"][data-slot = "first"]{
+    left: 47px;
+    bottom: 65px;
+    z-index: 1;
+}
+.Characters[data-user = "player_1"][data-slot = "second"]{
+    left: 47px;
+    bottom: 97px;
+    z-index: 1;
+}
+.Characters[data-user = "player_1"][data-slot = "third"]{
+    left: 47px;
+    bottom: 33px;
+    z-index: 1;
+}
+
+.Characters[data-user = "player_2"][data-slot = "first"]{
+    right: 46px;
+    top: 87px;
+    z-index: 1;
+}
+
+.Characters[data-user = "player_2"][data-slot = "second"]{
+    right: 46px;
+    top: 119px;
+    z-index: 1;
+}
+.Characters[data-user = "player_2"][data-slot = "third"]{
+    right: 46px;
+    top: 55px;
+    z-index: 1;
+}
+
+.Combat .Characters[isActive = "true"]{
+    opacity: 1;
+}
+
+.Combat .Characters[isActive = "false"]{
+    opacity: 0;
+
+}
+
+.Character_hp_container {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    width: 26px;
+    height: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20%;
+}
+
+.Character_hp_container rect {
+    transition: width 0.2s;
+}
+
+.CharIcon{
+    position: absolute;
+    background: url(/Sprites/shadow.png) no-repeat no-repeat;
+}
+
+.CharIcon[data-user = "player_1"][data-slot = "first"]{
+    left: 65px;
+    bottom: 73px;
+}
+.CharIcon[data-user = "player_1"][data-slot = "second"]{
+    left: 65px;
+    bottom: 106px;
+}
+.CharIcon[data-user = "player_1"][data-slot = "third"]{
+    left: 65px;
+    bottom: 42px;
+}
+.CharIcon[data-user = "player_2"][data-slot = "first"]{
+    right: 64px;
+    top: 60px;
+}
+.CharIcon[data-user = "player_2"][data-slot = "second"]{
+    right: 64px;
+    top: 93px;
+}
+.CharIcon[data-user = "player_2"][data-slot = "third"]{
+    right: 64px;
+    top: 28px;
+}
+.CharIcon[isActive = "false"]{
+    opacity: 0;
+}
+.CharIcon[isActive = "true"]{
+    opacity: 1;
+}

@@ -1,0 +1,82 @@
+.Combat{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(/maps/DemoBattle.png);
+    background-size: cover;
+    
+    image-rendering: pixelated;
+}
+
+.combat_Player1, .combat_Player2{
+    position: absolute;
+    transform: scale(1);
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    background: url(/Sprites/shadow.png) no-repeat no-repeat;
+
+}
+
+.combat_Player1 img, .combat_Player2 img {
+    pointer-events: none;
+}
+
+.combat_Player1{
+    bottom: 73px;
+    left: 0px;
+}
+
+.combat_Player2{ 
+    top: 60px;
+    right: 0px;
+}
+
+.skill_Points1, .skill_Points2{
+    position: absolute;
+    overflow: hidden;
+}
+
+.skill_Points1{
+    bottom: 62px;
+    left: -12px
+}
+
+.skill_Points2{
+    top: 52px;
+    right: -12px
+}
+
+/* ANIMS */
+
+@keyframes damage-blinker {
+    to {
+        visibility: hidden;
+    }
+}
+
+.damage-blinker {
+    animation: damage-blinker 0.3s steps(2, start) infinite;
+}
+
+@keyframes lunge-right {
+    0% { transform: translate3d(0,0,0) rotate(0deg) ;}
+    25% { transform: translate3d(100%,-25%,0) rotate(25deg);}
+    100% { transform: translate3d(0,0,0) ;}
+}
+
+.lunge-right {
+    animation: lunge-right 0.8s;
+}
+
+@keyframes lunge-left {
+    0% { transform: translate3d(0,0,0) rotate(0deg);}
+    25% { transform: translate3d(-100%,25%,0) rotate(-25deg);}
+    100% { transform: translate3d(0,0,0) ;}
+}
+
+.lunge-left {
+    animation: lunge-left 0.8s;
+}

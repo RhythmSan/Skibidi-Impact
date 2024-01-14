@@ -1,0 +1,17 @@
+body{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+.game-container{
+    position: relative;
+    width: 352px;
+    height: 198px;
+    outline: 1px solid aqua;
+    margin: 0 auto;
+    transform: scale(3) translateY(50%);
+    background-color: white;
+}
+
