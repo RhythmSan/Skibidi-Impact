@@ -38,7 +38,9 @@ class KeyboardMenu{
         this.element.remove();
         this.descriptionElement.remove();
     }
-
+    unusableSkill(){
+        this.descriptionElementText.innerText = "Not Enough Skill Point!!"
+    }
     createElement(){
         this.element = document.createElement("div");
         this.element.classList.add("KeyboardMenu");

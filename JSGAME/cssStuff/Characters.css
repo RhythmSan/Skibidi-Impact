@@ -17,7 +17,7 @@
 .Characters[data-user = "player_1"][data-slot = "third"]{
     left: 47px;
     bottom: 33px;
-    z-index: 1;
+    z-index: 0;
 }
 
 .Characters[data-user = "player_2"][data-slot = "first"]{
@@ -63,6 +63,7 @@
 
 .CharIcon{
     position: absolute;
+    z-index: 0;
     background: url(/Sprites/shadow.png) no-repeat no-repeat;
 }
 

@@ -11,18 +11,18 @@ window.CharacterDex = {
         name: "TBA",
         type: CharacterClass.dmgDealer,
         src: "/Sprites/Placeholder.png",
-        attacks: [ "damage01" ],
+        attacks: [ "damage01", "damage02" ],
     },
     "s01":{
         name: "Koomi",
         type: CharacterClass.support,
         src: "/Sprites/Placeholder.png",
-        attacks: [ "support01" ],
+        attacks: [ "support01", "support03" ],
     },
     "f01":{
         name: "TBA",
         type: CharacterClass.frontline,
         src: "/Sprites/Placeholder.png",
-        attacks: [ "frontline01" ],
+        attacks: [ "frontline01", "frontline02" ],
     }
 }

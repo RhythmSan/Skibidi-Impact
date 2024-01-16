@@ -15,7 +15,6 @@ class Characters {
     get activeCharacter(){
         const activeCharacters = this.combat.activeCharacters[this.user];
         return activeCharacters && activeCharacters.includes(this.id);
-
     }
     
     createElement(){

@@ -3,7 +3,10 @@ class CyclesHandler {
         this.combat = combat;
         this.onNewEvent = onNewEvent;
         this.currentTurn = "player_1"
-        this.skillPoint = this.combat.skillPoint[this.currentTurn]
+    }
+
+    get skillPoint(){
+       return this.combat.skillPoint[this.currentTurn];
     }
 
     async turn(){
@@ -19,12 +22,12 @@ class CyclesHandler {
 
             console.log(enemyCharacters)
             console.log(currentPlayerCharacters);
-            console.log(this.skillPoint);
                 // submits an action with the key of the enemy
             const submission = await this.onNewEvent({
                 type: "submissionMenu",
                 whosTurn,
                 skillPoint: this.skillPoint,
+                playerTurn: this.currentTurn,
                 // allyTeam: currentPlayerCharacters,
                 // enemyTeam: enemyCharacters,
                 ally: currentPlayerCharacters,
@@ -43,6 +46,7 @@ class CyclesHandler {
                     submission,
                     attack: submission.attack,
                     whosTurn,
+                    playerTurn: this.currentTurn,
                     target,
                 }
                 // console.log(events);
@@ -53,6 +57,12 @@ class CyclesHandler {
             }
         }
         // switches to next player
+        /// add a way for players to get skill point after each turn
+        let skillPointIncome = this.skillPoint + 3 <= 5? this.skillPoint + 3 : 5;
+        this.combat.skillPoint[this.currentTurn] = skillPointIncome;
+        this.combat.updateSkillPointElement(this.currentTurn);
+        console.log(this.skillPoint);
+        /// add a way for players to stop using skill point if they dont have enough skill point
         this.currentTurn = this.currentTurn === "player_1" ? "player_2" : "player_1";
         await this.onNewEvent({
             type: "textMessage",

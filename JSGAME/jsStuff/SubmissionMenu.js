@@ -1,8 +1,9 @@
 class SubmissionMenu{
-    constructor({ whosTurn, enemy, skillPoint, ally, onComplete}){
+    constructor({ whosTurn, enemy, skillPoint, playerTurn, ally, onComplete}){
         this.whosTurn = whosTurn;
         this.enemy = enemy;
         this.skillPoint = skillPoint;
+        this.playerTurn = playerTurn;
         this.ally = ally;
         this.onComplete = onComplete;
         this.targetCharacter;
@@ -61,12 +62,11 @@ class SubmissionMenu{
                         label: attack.name,
                         description: attack.description,
                         handler: () => {
-                            if (attack.skillCost > this.skillPoint){
-                                
+                            if (this.skillPoint < attack.skillCost){
+                                this.keyboardMenu.unusableSkill();
                             }
                             else{
                                 console.log(this.whosTurn, attack, this.enemy, this.skillPoint)
-                                this.skillPoint - attack.skillCost
                                 this.menuSubmit(attack);
                             }
                         }
@@ -112,10 +112,12 @@ class SubmissionMenu{
     menuSubmit(attack){
 
         this.keyboardMenu?.end();
-        console.log(this.skillPoint)
+
+        console.log(this.skillPoint);
+        console.log(attack.skillCost);
         this.onComplete({
             attack,
-            target: this.targetCharacter
+            target: this.targetCharacter,
         })
     }
 

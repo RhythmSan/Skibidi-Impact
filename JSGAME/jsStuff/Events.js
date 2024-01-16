@@ -20,7 +20,7 @@ class Events{
     }
 
     async stateChange(resolve){
-        const {whosTurn, target, damage, heal, shield,} = this.event;
+        const {whosTurn, playerTurn, target, damage, heal, shield,} = this.event;
         const who = this.event.onUser ? whosTurn : target
         if (damage) {
             if(who.shield > 0){
@@ -66,6 +66,13 @@ class Events{
         }
 
 
+        let newSkillPoint = this.combat.skillPoint[playerTurn] - this.event.attack.skillCost;
+        this.combat.skillPoint[playerTurn] = newSkillPoint
+
+        this.combat.updateSkillPointElement(playerTurn);
+
+        console.log(this.combat.skillPoint[playerTurn])
+        console.log(this.event.attack.skillCost)
         await utils.wait(500);
         target.characterElement.classList.remove("damage-blinker")
 
@@ -75,7 +82,8 @@ class Events{
     submissionMenu(resolve){
         const menu = new SubmissionMenu({
             whosTurn: this.event.whosTurn,
-            skillPoint: this.combat.skillPoint,
+            playerTurn: this.event.playerTurn,
+            skillPoint: this.event.skillPoint,
             ally: this.event.ally,
             enemy: this.event.enemy,
             onComplete: submission => {

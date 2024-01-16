@@ -61,7 +61,13 @@ class Combat{
             player_1: 5,
             player_2: 5
         }
+    }
 
+    updateSkillPointElement(player) {
+        const skillPointElement = this.element.querySelector(`.skill_Points${player === "player_1" ? '1' : '2'} .skillPoint`);
+        if (skillPointElement) {
+            skillPointElement.innerHTML = this.skillPoint[player];
+        }
     }
 
     createElement(){
@@ -81,7 +87,7 @@ class Combat{
         <div class="skill_Points2">
             <p class="skillPoint">${this.skillPoint["player_2"]}</p>
         </div>
-        `);
+        `); 
     }
 
     init(container){

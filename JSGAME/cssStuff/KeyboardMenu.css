@@ -2,7 +2,7 @@
     border: 1px solid palevioletred;
     background: burlywood;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 }
 
 .KeyboardMenu button{
@@ -38,11 +38,13 @@
     border-top: 1px solid palevioletred;
     background: burlywood;
     padding: 2px;
+    z-index: 2;
 }
 
 .descriptionContainer p{
     font-size: 8px;
     margin: 0;
+    z-index: 2;
 }
 
 
