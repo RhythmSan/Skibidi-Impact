@@ -55,6 +55,22 @@ class CyclesHandler {
                 await this.onNewEvent(events);
                 console.log("Stop")
             }
+            console.log(target.currHp); 
+            const targetIsDead = target.currHp <= 0;
+            if (targetIsDead){
+                console.log(target.id)
+                console.log(target.name + " Is dead!")
+
+                const indexOfTarget = enemyCharacters.indexOf(target.id);
+                if (indexOfTarget !== -1){
+                    enemyCharacters.splice(indexOfTarget, 1);
+                    console.log(enemyCharacters)
+                    target.update();
+                }
+            }
+
+            // Win condition here => todo // send into home screen => todo
+
         }
         // switches to next player
         /// add a way for players to get skill point after each turn

@@ -16,7 +16,7 @@ window.Attacks = {
         success: [
             { type: "textMessage" , text: "{USER} Uses {ATTACK}"},
             { type: "animation", animation: "lunge"},
-            { type: "stateChange", damage: 12}
+            { type: "stateChange", damage: 120}
         ]
     },
     support01: {
@@ -64,7 +64,8 @@ window.Attacks = {
         skillCost: 0,
         success: [
             { type: "textMessage", text: "{USER} Uses {ATTACK}"},
-            { type: "stateChange", damage: 4}   
+            { type: "animation", animation: "bash"},
+            { type: "stateChange", damage: 100}   
         ]
     },
 }
