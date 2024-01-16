@@ -69,8 +69,18 @@ class CyclesHandler {
                 }
             }
 
-            // Win condition here => todo // send into home screen => todo
 
+            const winner = this.getWinner();
+            if (winner){
+                
+                await this.onNewEvent({
+                    type: "textMessage",
+                    text: winner === "player_1"? "player 1 is the WINNER!" : "player 2 is the WINNER!"
+                })
+
+            // Win condition here => todo // send into home screen => todo
+                return;
+            }
         }
         // switches to next player
         /// add a way for players to get skill point after each turn
@@ -88,7 +98,18 @@ class CyclesHandler {
         await this.turn();
         
     }
-
+    getWinner(){
+        let aliveTeam = {};
+        Object.values(this.combat.characters).forEach(c => {
+            if (c.currHp > 0){
+                aliveTeam[c.user] = true;
+            }
+        })
+        console.log(aliveTeam);
+        if (!aliveTeam["player_1"]) { return "player_2"};
+        if (!aliveTeam["player_2"]) { return "player_1"};
+        return null;
+    }
     
     async init() {
         // await this.onNewEvent({
