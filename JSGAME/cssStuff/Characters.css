@@ -67,6 +67,13 @@
     background: url(/Sprites/shadow.png) no-repeat no-repeat;
 }
 
+.CharIcon[data-user ="player_2"]{
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 .CharIcon[data-user = "player_1"][data-slot = "first"]{
     left: 65px;
     bottom: 73px;

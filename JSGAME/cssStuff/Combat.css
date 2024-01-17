@@ -72,9 +72,9 @@
 }
 
 @keyframes lunge-left {
-    0% { transform: translate3d(0,0,0) rotate(0deg);}
-    25% { transform: translate3d(-100%,25%,0) rotate(-25deg);}
-    100% { transform: translate3d(0,0,0) ;}
+    0% { transform: translate3d(0,0,0) rotate(0deg) scaleX(-1);}
+    25% { transform: translate3d(-100%,25%,0) rotate(-25deg) scaleX(-1);}
+    100% { transform: translate3d(0,0,0) scaleX(-1);}
 }
 
 .lunge-left {
@@ -92,11 +92,31 @@
 }
 
 @keyframes bash-left {
-    0% { transform: translate3d(0,0,0) rotate(0deg);}
-    25% { transform: translate3d(-100%,25%,0) rotate(0deg);}
-    100% { transform: translate3d(0,0,0) ;}
+    0% { transform: translate3d(0,0,0) rotate(0deg) scaleX(-1);}
+    25% { transform: translate3d(-100%,25%,0) rotate(0deg) scaleX(-1);}
+    100% { transform: translate3d(0,0,0) scaleX(-1);}
 }
 
 .bash-left {
     animation: bash-left 0.8s;
+}
+
+@keyframes shoot-right {
+    0% { transform: translate3d(0,0,0) rotate(0deg) ;}
+    25% { transform: translate3d(0,0,0) rotate(-25deg);}
+    100% { transform: translate3d(0,0,0) ;}
+}
+
+.shoot-right {
+    animation: shoot-right 0.8s;
+}
+
+@keyframes shoot-left {
+    0% { transform: translate3d(0,0,0) rotate(0deg) scaleX(-1);}
+    25% { transform: translate3d(0,0,0) rotate(25deg) scaleX(-1);}
+    100% { transform: translate3d(0,0,0) scaleX(-1);}
+}
+
+.shoot-left {
+    animation: shoot-left 0.8s;
 }

@@ -6,7 +6,7 @@ window.Attacks = {
         success: [
             { type: "textMessage" , text: "{USER} Uses {ATTACK}"},
             { type: "animation", animation: "lunge"},
-            { type: "stateChange", damage: 4}
+            { type: "stateChange", damage: 8}
         ]
     },
     damage02: {
@@ -16,7 +16,17 @@ window.Attacks = {
         success: [
             { type: "textMessage" , text: "{USER} Uses {ATTACK}"},
             { type: "animation", animation: "lunge"},
-            { type: "stateChange", damage: 120}
+            { type: "stateChange", damage: 16}
+        ]
+    },
+    damage03: {
+        name: "Shoot",
+        description: "Shoots the opponenent, requires 1 skill point",
+        skillCost: 1,
+        success: [
+            { type: "textMessage" , text: "{USER} Uses {ATTACK}"},
+            { type: "animation", animation: "shoot"},
+            { type: "stateChange", damage: 12}
         ]
     },
     support01: {
@@ -42,7 +52,7 @@ window.Attacks = {
         support03: {
         name: "Sustain",
         description: "Sustain yourself, requires 0 skill point (applies on the User)",
-        skillCost: 4,
+        skillCost: 0,
         success: [
             { type: "textMessage", text: "{USER} Uses {ATTACK}"},
             { type: "stateChange", heal: 5, onUser: true}
@@ -65,7 +75,7 @@ window.Attacks = {
         success: [
             { type: "textMessage", text: "{USER} Uses {ATTACK}"},
             { type: "animation", animation: "bash"},
-            { type: "stateChange", damage: 100}   
+            { type: "stateChange", damage: 4}   
         ]
     },
 }

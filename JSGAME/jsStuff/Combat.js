@@ -1,66 +1,44 @@
 class Combat{
     constructor(){
+        this.numPlayers = 2;
         //Character create
         this.characters = {
-            "character1": new Characters({
-                ...CharacterDex.s01,
-                user: "player_2",
-                slot: "first",
-                maxHp: 100,
-                currHp: 100,
-                debuff: null
-            }, this),
-            "character2": new Characters({
-                ...CharacterDex.f01,
-                user: "player_1",
-                slot: "first",
-                maxHp: 100,
-                currHp: 100,
-                shield: 0,
-                debuff: null
-            }, this),
-            "character3": new Characters({
-                ...CharacterDex.d01,
-                user: "player_1",
-                slot: "second",
-                maxHp: 100,
-                currHp: 100,
-                debuff: null
-            }, this),
-            "character4": new Characters({
-                ...CharacterDex.d01,
-                user: "player_2",
-                slot: "third",
-                maxHp: 100,
-                currHp: 100,
-                debuff: null
-            }, this),
-            "character6": new Characters({
-                ...CharacterDex.d01,
-                user: "player_2",
-                slot: "second",
-                maxHp: 100,
-                currHp: 100,
-                debuff: null
-            }, this),
-            "character7": new Characters({
-                ...CharacterDex.d01,
-                user: "player_1",
-                slot: "third",
-                maxHp: 100,
-                currHp: 100,
-                debuff: null
-            }, this),
+
         }
         //Which character is on field
         this.activeCharacters = {
-            player_1: ["character2", "character3", "character7"],
-            player_2: ["character1", "character6", "character4"]
+            player_1: [],
+            player_2: []
         }
         this.skillPoint = {
             player_1: 5,
             player_2: 5
         }
+    }
+
+    getPlayerNumber() {
+        // Determine the player number dynamically based on the existing players
+        console.log(this.activeCharacters)
+        return this.activeCharacters["player_1"].length < 3 ? 1 : 2
+    }
+
+    getNextAvailableSlot(playerNumber) {
+        // Determine the next available slot for the new character
+        const playerKey = `player_${playerNumber}`;
+        const slots = ["first", "second", "third"]; // Customize based on your requirements
+        const occupiedSlots = this.activeCharacters[playerKey].map(characterId => this.characters[characterId].slot);
+
+        for (const slot of slots) {
+            if (!occupiedSlots.includes(slot)) {
+                return slot;
+            }
+        }
+
+        return null; // No available slot found
+    }
+
+    getActiveCharacterLength(playerNumber){
+        return this.activeCharacters[`player_${playerNumber}`].length + 1;
     }
 
     updateSkillPointElement(player) {

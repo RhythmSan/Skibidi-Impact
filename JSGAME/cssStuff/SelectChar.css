@@ -1,0 +1,41 @@
+.character-picker-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.submit-button{
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.character-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.character-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.selected-character-display {
+    position: absolute;
+    top: 200px;
+    right: 47.7%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.selected-character-display img {
+    width: 50px;
+    height: 50px;
+}
