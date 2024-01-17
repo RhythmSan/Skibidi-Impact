@@ -29,6 +29,9 @@ class Characters {
         <rect x=0 y=0 width="0%" height=1 fill="#82ff71" />
         <rect x=0 y=1 width="0%" height=2 fill="#3ef126" />
         </svg>
+        <div class="slotHp">
+        <p>${this.slot}</p>
+        </div>
         `);
 
         // Character icon element (gets the src from CharacterDex)
@@ -51,6 +54,7 @@ class Characters {
         // Update active
         this.hudElement.setAttribute("isActive", this.activeCharacter);
         this.characterElement.setAttribute("isActive", this.activeCharacter);
+        this.characterElement.setAttribute("isTarget", this.whoTarget)
 
         // Update Hp
         this.hpFill.forEach(rect => rect.style.width = `${this.hpPercentage}%`);

@@ -1,0 +1,29 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="/TItle/sam.css">
+</head>
+<body>
+    <img src="/TItle/settings.png" id="settings-icon" class="settings-icon" onclick="openSettings()">
+
+    <audio id="background-music" loop autoplay>
+        <source src="/TItle/13.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="settings-box" class="settings-box">
+        <label for="music">Music Volume:</label>
+        <input type="range" id="music" name="music" min="0" max="100">
+
+        <label for="sound-effects">Sound Effects Volume:</label>
+        <input type="range" id="sound-effects" name="sound-effects" min="0" max="100">
+
+        <button onclick="closeSettings()">Close</button>
+    </div>
+  
+</body>
+<script src="/TItle/sam.js"></script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title Screen</title>
+    <link rel="stylesheet" href="/TItle/title.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+</head>
+<body>
+    <img src="/TItle/settings.png" id="settings-icon" class="settings-icon" onclick="openSettings()">
+
+    <audio id="background-music" loop autoplay>
+        <source src="13.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="settings-box" class="settings-box">
+        <label for="music">Music Volume:</label>
+        <input type="range" id="music" name="music" min="0" max="100">
+
+        <label for="sound-effects">Sound Effects Volume:</label>
+        <input type="range" id="sound-effects" name="sound-effects" min="0" max="100">
+
+        <button onclick="closeSettings()">Close</button>
+    </div>
+
+    <div id="start-screen" class="startGame">
+        <h1 class="game-title">SKIBIDI:TINY WARRIORS</h1>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Skibidi: Tiny Warriors. All rights reserved.</p>
+    </footer>
+
+    <script src="/TItle/title.js"></script>
+</body>
+</html>

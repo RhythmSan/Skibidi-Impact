@@ -36,6 +36,7 @@ class CharacterPicker {
             // Add selected character to the Combat class
             const selectedCharacter = CharacterDex[selectedCharacterId];
             const playerNumber = combat.getPlayerNumber(); // You need to implement this method in the Combat class
+            const slot = combat.getNextAvailableSlot(playerNumber);
             this.chosenCharacters[`player_${playerNumber}`]++;
             
             const characterNumber = combat.getActiveCharacterLength(playerNumber);
@@ -44,12 +45,13 @@ class CharacterPicker {
             combat.characters[characterIds] = new Characters({
                 ...selectedCharacter,
                 user: `player_${playerNumber}`,
-                slot: combat.getNextAvailableSlot(playerNumber),
+                slot,
                 maxHp: 100,
                 currHp: 100,
                 debuff: null
             }, combat);
             
+
             combat.activeCharacters[`player_${playerNumber}`].push(characterIds);
 
             console.log(combat.activeCharacters[`player_${playerNumber}`]);
@@ -58,6 +60,10 @@ class CharacterPicker {
             console.log(characterIds);
             console.log(characterNumber)
             console.log(playerNumber)
+
+            displaySubmittedCharacter(selectedCharacterId, slot, `player_${playerNumber}`);
+
+
             // combat.init(this.gameContainer);
             // Initialize the Combat class and append it to the game container
             if (
@@ -70,12 +76,24 @@ class CharacterPicker {
                 // Remove the character picker container from the document
                 const pickerContainer = document.querySelector('.character-picker-container');
                 const existingDisplay = document.querySelector(".selected-character-display");
+                const playerLabel = document.querySelector('.playerLabel_1');
+                const playerLabel_2 = document.querySelector('.playerLabel_2');
+                const displayElement = document.querySelectorAll('.submitted-character-display')
                 if (pickerContainer) {
                     pickerContainer.remove();
                 }
                 if(existingDisplay){
                     existingDisplay.remove();
                 }
+                if(playerLabel){
+                    playerLabel.remove();
+                }
+                if(playerLabel_2){
+                    playerLabel_2.remove();
+                }
+                displayElement.forEach(displayElement => {
+                    displayElement.remove()
+                })
             }
         }
     }
@@ -86,7 +104,28 @@ class CharacterPicker {
 
         // Create the character picker element
         const pickerElement = document.createElement("div");
-        pickerElement.classList.add("character-picker");
+        pickerElement.classList.add("character-picker");            
+
+        const playerLabel = document.createElement("div");
+
+        playerLabel.classList.add('playerLabel_1');
+        playerLabel.innerHTML = (
+            `        
+            <div class="player_1">
+                <p class="player">Player 1</p>
+            </div>
+            `
+        )        
+        const playerLabel_2 = document.createElement("div");
+
+        playerLabel_2.classList.add('playerLabel_2');
+        playerLabel_2.innerHTML = (
+            `
+            <div class="player_2">
+                <p class="player">Player 2</p>
+            </div>
+             `
+        )
 
         Object.keys(this.characterDex).forEach(characterId => {
             const character = this.characterDex[characterId];
@@ -123,6 +162,8 @@ class CharacterPicker {
         pickerContainer.appendChild(submitButton);
 
         document.body.appendChild(pickerContainer);
+        document.body.appendChild(playerLabel);
+        document.body.appendChild(playerLabel_2);
     }
 }
 
@@ -145,14 +186,30 @@ function displaySelectedCharacterIcon(iconSrc) {
     }
 
     // Create a new display for the selected character's icon
+        // Create a new display for the selected character's icon
+        const displayElement = document.createElement("div");
+        displayElement.classList.add("selected-character-display");
+
+        const iconImage = document.createElement("img");
+        iconImage.src = iconSrc;
+        iconImage.alt = "Selected Character";
+
+        displayElement.appendChild(iconImage);
+    document.body.appendChild(displayElement);
+}
+
+function displaySubmittedCharacter(characterId, slot, user) {
+    const submittedCharacter = CharacterDex[characterId];
+
     const displayElement = document.createElement("div");
-    displayElement.classList.add("selected-character-display");
+    displayElement.classList.add("submitted-character-display");
+    displayElement.setAttribute("data-slot", slot);
+    displayElement.setAttribute("data-user", user);
 
     const iconImage = document.createElement("img");
-    iconImage.src = iconSrc;
-    iconImage.alt = "Selected Character";
-
+    iconImage.src = submittedCharacter.src;
+    iconImage.alt = "Submitted Character";
+    
     displayElement.appendChild(iconImage);
-
     document.body.appendChild(displayElement);
 }

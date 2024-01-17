@@ -4,7 +4,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url(/maps/DemoBattle.png);
+    background-image: url(/maps/MainMap.png);
     background-size: cover;
     
     image-rendering: pixelated;
@@ -25,12 +25,12 @@
 }
 
 .combat_Player1{
-    bottom: 73px;
+    bottom: 40px;
     left: 0px;
 }
 
 .combat_Player2{ 
-    top: 60px;
+    top: 120px;
     right: 0px;
 }
 
@@ -63,7 +63,7 @@
 
 @keyframes lunge-right {
     0% { transform: translate3d(0,0,0) rotate(0deg) ;}
-    25% { transform: translate3d(100%,-25%,0) rotate(25deg);}
+    25% { transform: translate3d(100%,0,0) rotate(25deg);}
     100% { transform: translate3d(0,0,0) ;}
 }
 
@@ -73,7 +73,7 @@
 
 @keyframes lunge-left {
     0% { transform: translate3d(0,0,0) rotate(0deg) scaleX(-1);}
-    25% { transform: translate3d(-100%,25%,0) rotate(-25deg) scaleX(-1);}
+    25% { transform: translate3d(-100%,0,0) rotate(-25deg) scaleX(-1);}
     100% { transform: translate3d(0,0,0) scaleX(-1);}
 }
 
@@ -83,7 +83,7 @@
 
 @keyframes bash-right {
     0% { transform: translate3d(0,0,0) rotate(0deg) ;}
-    25% { transform: translate3d(100%,-25%,0) rotate(0deg);}
+    25% { transform: translate3d(100%,0,0) rotate(0deg);}
     100% { transform: translate3d(0,0,0) ;}
 }
 
@@ -93,7 +93,7 @@
 
 @keyframes bash-left {
     0% { transform: translate3d(0,0,0) rotate(0deg) scaleX(-1);}
-    25% { transform: translate3d(-100%,25%,0) rotate(0deg) scaleX(-1);}
+    25% { transform: translate3d(-100%,0,0) rotate(0deg) scaleX(-1);}
     100% { transform: translate3d(0,0,0) scaleX(-1);}
 }
 
@@ -119,4 +119,36 @@
 
 .shoot-left {
     animation: shoot-left 0.8s;
+}
+
+.orb {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+@keyframes orb-right {
+    0% { transform: translate3d(0,0,0) scale(0.5); opacity: 1;}
+    25% { transform: translate3d(0,20,0) scale(1); opacity: 1;}
+    50% { transform: translate3d(0,120,0) scale(2); opacity: 1;}
+    100% { transform: translate3d(0,130,0) scale(3); opacity: 0;}
+}
+
+.orb-right {
+    left: 68px;
+    bottom: 63px;
+    animation: orb-right 1s forwards;
+}
+
+@keyframes orb-left {
+    0% { transform: translate3d(0,0,0) scale(0.5); opacity: 1;}
+    25% { transform: translate3d(0,20,0) scale(1); opacity: 1;}
+    50% { transform: translate3d(0,120,0) scale(2); opacity: 1;}
+    100% { transform: translate3d(0,130,0) scale(3); opacity: 0;}
+}
+
+.orb-left {
+    right: 78px;
+    bottom: 55px;
+    animation: orb-left 1s forwards;
 }

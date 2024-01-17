@@ -79,6 +79,8 @@ class CyclesHandler {
                 })
 
             // Win condition here => todo // send into home screen => todo
+                window.location.href = 'title.html';
+                this.combat.element.remove();
                 return;
             }
         }

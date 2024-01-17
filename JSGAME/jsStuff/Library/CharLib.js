@@ -11,24 +11,24 @@ window.CharacterDex = {
         name: "Karl",
         type: CharacterClass.dmgDealer,
         src: "/Sprites/d01.png",
-        attacks: [ "damage01", "damage03" ],
+        attacks: [ "damage01", "damage03","damage05" ],
     },
     "s01":{
         name: "Koomi",
         type: CharacterClass.support,
         src: "/Sprites/s01.png",
-        attacks: [ "support01", "support03" ],
+        attacks: [ "support01", "support03", "support02" ],
     },
     "f01":{
         name: "Billow",
         type: CharacterClass.frontline,
         src: "/Sprites/f01.png",
-        attacks: [ "frontline01", "frontline02" ],
+        attacks: [ "frontline01", "frontline02", "frontline03" ],
     },
     "f02":{
         name: "Fernando",
         type: CharacterClass.frontline,
-        src: "/Sprites/Placeholder.png",
-        attacks: [ "frontline01", "frontline02" ],
+        src: "/Sprites/f02.png",
+        attacks: [ "frontline01", "frontline02", "damage04" ],
     }
 }

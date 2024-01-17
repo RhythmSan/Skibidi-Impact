@@ -34,5 +34,25 @@ window.BattleAnims = {
 
         await utils.wait(100);
         onComplete();
+    },
+    async orb(event, onComplete){
+        const {whosTurn} = event;
+        let div = document.createElement("div");
+        div.classList.add("orb")
+        div.classList.add(whosTurn.user === "player_1" ? "orb-right" : "orb-left");
+
+        div.innerHTML = (`
+            <svg viewBox="0 0 64 64" width="64" height="64">
+                <circle cx="32" cy="32" r="32" fill="${event.color}" />
+            </svg>
+        `)
+
+        div.addEventListener("animationend", () => {
+            div.remove();
+        });
+        document.querySelector(".Combat").appendChild(div);
+
+        await utils.wait(820);
+        onComplete();
     }
 }

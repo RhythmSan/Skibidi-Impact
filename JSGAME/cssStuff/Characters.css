@@ -5,13 +5,13 @@
 }
 
 .Characters[data-user = "player_1"][data-slot = "first"]{
-    left: 47px;
-    bottom: 65px;
+    left: 47.5px;
+    bottom: 66px;
     z-index: 1;
 }
 .Characters[data-user = "player_1"][data-slot = "second"]{
-    left: 47px;
-    bottom: 97px;
+    left: 77.5px;
+    bottom: 56px;
     z-index: 1;
 }
 .Characters[data-user = "player_1"][data-slot = "third"]{
@@ -21,8 +21,8 @@
 }
 
 .Characters[data-user = "player_2"][data-slot = "first"]{
-    right: 46px;
-    top: 87px;
+    right: 15.5px;
+    bottom: 38px;
     z-index: 1;
 }
 
@@ -32,8 +32,8 @@
     z-index: 1;
 }
 .Characters[data-user = "player_2"][data-slot = "third"]{
-    right: 46px;
-    top: 55px;
+    right: 73px;
+    bottom: 38px;
     z-index: 1;
 }
 
@@ -43,9 +43,29 @@
 
 .Combat .Characters[isActive = "false"]{
     opacity: 0;
-
 }
 
+.Combat .CharIcon[isTarget = "true"]{
+    box-shadow: 0 0 10px rgb(221, 8, 8);
+}
+.Combat .CharIcon[isTarget = "false"]{
+    box-shadow: none;
+}
+
+.slotHp{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 36pt;
+    top: -3pt
+}
+
+.slotHp p{
+    font-size: 4pt;
+    font-style: italic;
+    color: white;
+    z-index: 0;
+}
 .Character_hp_container {
     position: absolute;
     left: 20px;
@@ -79,24 +99,24 @@
     bottom: 73px;
 }
 .CharIcon[data-user = "player_1"][data-slot = "second"]{
-    left: 65px;
-    bottom: 106px;
+    left: 95px;
+    bottom: 65px;
 }
 .CharIcon[data-user = "player_1"][data-slot = "third"]{
     left: 65px;
     bottom: 42px;
 }
 .CharIcon[data-user = "player_2"][data-slot = "first"]{
-    right: 64px;
-    top: 60px;
+    right: 32px;
+    bottom: 46px;
 }
 .CharIcon[data-user = "player_2"][data-slot = "second"]{
     right: 64px;
     top: 93px;
 }
 .CharIcon[data-user = "player_2"][data-slot = "third"]{
-    right: 64px;
-    top: 28px;
+    right: 90px;
+    bottom: 46px;
 }
 .CharIcon[isActive = "false"]{
     opacity: 0;

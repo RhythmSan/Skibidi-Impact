@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: gray;
+    background-image: url('/TItle/title.png');
 }
 
 .game-container{
@@ -13,5 +14,7 @@ body{
     margin: 0 auto;
     transform: scale(3) translateY(50%);
     background-color: white;
+    background-image: url('/TItle/title.png');
+    background-size: cover;
 }
 

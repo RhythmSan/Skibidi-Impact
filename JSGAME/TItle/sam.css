@@ -1,0 +1,102 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-image: url('title.png'); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    font-family:  sans-serif;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    flex-direction: column; 
+}
+
+.container {
+    
+}
+
+.game-title {
+    color: #080808;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255), 4px 4px 6px rgb(16, 16, 16);;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    margin-bottom: 20px; 
+}
+
+.startGame {
+    text-align: center; 
+}
+
+.startGame button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: transparent;
+    backdrop-filter: blur(35px);
+    color: #080808;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255), 4px 4px 6px rgb(6, 6, 6);
+    padding: 15px 25px;
+    font-size: 16px;
+    border-color: #03a145;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.startGame button:hover {
+    color: #ffffff;
+    background-color: #2ecc71; 
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+    background-color: #333;
+    color: #fff;
+}
+
+
+.settings-icon {
+    position: fixed;
+    margin-bottom: 450px;
+    margin-top: 1px;
+    margin-left: 1280px;
+    cursor: pointer;
+}
+
+.settings-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    display: none;
+    z-index: 999;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.settings-box label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.settings-box button {
+    border-color: #385845;
+    backdrop-filter: blur(35px);
+    background-color: transparent;
+    color: #fffcfc;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.settings-box button:hover{
+    color: #ffffff;
+    background-color: #2ecc71; 
+}
