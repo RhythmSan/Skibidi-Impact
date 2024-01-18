@@ -5,8 +5,8 @@
 }
 
 .Characters[data-user = "player_1"][data-slot = "first"]{
-    left: 47.5px;
-    bottom: 66px;
+    left: 15.5px;
+    bottom: 56px;
     z-index: 1;
 }
 .Characters[data-user = "player_1"][data-slot = "second"]{
@@ -95,8 +95,8 @@
 }
 
 .CharIcon[data-user = "player_1"][data-slot = "first"]{
-    left: 65px;
-    bottom: 73px;
+    left: 33px;
+    bottom: 65px;
 }
 .CharIcon[data-user = "player_1"][data-slot = "second"]{
     left: 95px;

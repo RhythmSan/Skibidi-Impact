@@ -1,6 +1,6 @@
 .KeyboardMenu{
     border: 1px solid palevioletred;
-    background: burlywood;
+    background-color: rgba(222, 184, 135,0.8);
     position: absolute;
     z-index: 3;
 }
@@ -33,7 +33,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 30%;
     color: black;
     border-top: 1px solid palevioletred;
     background: burlywood;

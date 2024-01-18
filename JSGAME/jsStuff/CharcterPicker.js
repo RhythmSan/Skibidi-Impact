@@ -24,7 +24,7 @@ class CharacterPicker {
         const selectedCharacterId = this.selectedCharacterId;
         if (this.onSubmit && selectedCharacterId) {
             // Call the onSubmit callback
-            this.onSubmit(selectedCharacterId);
+            this.onSubmit(selectedCharacterId)
     
             // Create an instance of the Combat class
             if (!this.combat) {
@@ -48,6 +48,7 @@ class CharacterPicker {
                 slot,
                 maxHp: 100,
                 currHp: 100,
+                shield: 0,
                 debuff: null
             }, combat);
             

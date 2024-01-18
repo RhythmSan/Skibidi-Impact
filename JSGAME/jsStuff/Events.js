@@ -19,13 +19,12 @@ class Events{
         message.init(this.combat.element);
     }
 
-    async stateChange(resolve){
-        const {whosTurn, playerTurn, target, damage, heal, shield,} = this.event;
-        const who = this.event.onUser ? whosTurn : target
+    eventCheck(who){
+        const {whosTurn, playerTurn, target, damage, heal, shield, reap, onTeam, shieldClear} = this.event;
         if (damage) {
             if(who.shield > 0){
-                let shieldBreak = damage - who.shield;
-                shieldBreak < 0 ? 0 : shieldBreak;
+                let shieldBreak = damage - who.shield > 0 ? damage- who.shield : 0;
+                console.log(shieldBreak);
                 who.update({
                     shield: who.shield - damage,
                     currHp: who.currHp - shieldBreak
@@ -64,7 +63,50 @@ class Events{
                 shield: newShield
             })
         }
+        if (reap){
+            let reap = 20/who.maxHp * who.currHp;
+            console.log(reap)
+            whosTurn.update({
+                currHp: whosTurn.currHp + reap
+            })
+            if(reap > whosTurn.maxHp){
+                whosTurn.update({
+                    currHp: whosTurn.maxHp
+                })
+            }
+            if(shield > 0){
+                who.update({
+                    shield: who.shield - reap
+                })
+            }
+        }
+        if(shieldClear){
+            who.update({
+                shield: 0
+            })
+        }
+    }
 
+
+    async stateChange(resolve){
+        const {whosTurn, playerTurn, target, damage, heal, shield, reap, onTeam} = this.event;
+        const who = this.event.onUser ? whosTurn : target
+        if (onTeam){
+            const currentPlayerCharacters = this.combat.activeCharacters[playerTurn];
+            const team = []
+            for(const characterId of currentPlayerCharacters){
+                team.push(characterId);
+            }
+            console.log(team)
+            team.forEach(key => {
+                const who = this.combat.characters[key]
+                this.eventCheck(who);
+            });
+        }
+        else{
+            this.eventCheck(who)
+        }
+        
 
         let newSkillPoint = this.combat.skillPoint[playerTurn] - this.event.attack.skillCost;
         this.combat.skillPoint[playerTurn] = newSkillPoint

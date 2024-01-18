@@ -53,12 +53,6 @@ class Combat{
         this.element = document.createElement("div");
         this.element.classList.add("Combat");
         this.element.innerHTML = (`
-        <div class="combat_Player1">
-            <img src="${'/Sprites/Placeholder.png'}" alt="Player1">
-        </div>
-        <div class="combat_Player2">
-            <img src="${'/Sprites/Placeholder2.png'}" alt="Player2">
-        </div>
         <div class="skill_Points1">
             <p class="skillPoint">${this.skillPoint["player_1"]}</p>
         </div>
